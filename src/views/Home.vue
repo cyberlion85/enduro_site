@@ -30,24 +30,16 @@
 
           <v-divider></v-divider>
         </v-responsive>
-
-        <v-carousel height="800">
-          <v-carousel-item
-            v-for="(item, i) in items"
-            :key="i"
-            :src="item.src"
-            reverse-transition="fade-transition"
-            transition="fade-transition"
-          ></v-carousel-item>
-        </v-carousel>
       </v-container>
 
       <div class="py-12"></div>
     </section>
 
-    <section>
+    <section id="photos">
       <div><photos /></div>
     </section>
+
+
 
     <!-- <v-container>
       <v-row>
@@ -172,7 +164,7 @@
           align="center"
           :style="{
             flexDirection:
-              $vuetify.breakpoint.mdAndUp && i % 2 ? 'row-reverse' : 'row'
+              $vuetify.breakpoint.mdAndUp && i % 2 ? 'row-reverse' : 'row',
           }"
         >
           <v-col cols="12" md="6">
@@ -414,7 +406,7 @@
                         width="600"
                         height="500"
                         frameborder="0"
-                        style="border: 0;"
+                        style="border: 0"
                         allowfullscreen=""
                         aria-hidden="false"
                         tabindex="0"
@@ -483,7 +475,7 @@
                         width="600"
                         height="500"
                         frameborder="0"
-                        style="border: 0;"
+                        style="border: 0"
                         allowfullscreen=""
                         aria-hidden="false"
                         tabindex="0"
@@ -518,15 +510,15 @@ export default {
     meta: [
       {
         name: "description",
-        content: "Customized vue-cli templates for Vue and Vuetify"
-      }
-    ]
+        content: "Customized vue-cli templates for Vue and Vuetify",
+      },
+    ],
   },
 
   components: {
     GetAQuote: () => import("@/components/GetAQuote"),
     OrderForm: () => import("@/components/OrderForm"),
-    Photos: () => import("@/components/core/Photos")
+    Photos: () => import("@/components/core/Photos"),
   },
 
   data: () => ({
@@ -540,7 +532,7 @@ export default {
       {
         name: "2 ЧАСА ПОЕЗДКИ",
         monthly: 4000,
-        features: ["По выходным и будням", "Группа до 4х человек"]
+        features: ["По выходным и будням", "Группа до 4х человек"],
       },
       {
         name: "КУРС ОБУЧЕНИЯ",
@@ -548,9 +540,9 @@ export default {
         features: [
           "ежедневно ",
           "5 занятий по 2 часа (10 часов)",
-          "в группе до 2 человек"
-        ]
-      }
+          "в группе до 2 человек",
+        ],
+      },
     ],
     features: [
       {
@@ -558,52 +550,52 @@ export default {
         color: "blue-grey",
         header: "Индивидуальный подход",
         text:
-          "К нашим клиентам мы относимся с заботой и ценим Ваше доверие. Берём в расчёт Ваши пожелания, находим подход к каждому."
+          "К нашим клиентам мы относимся с заботой и ценим Ваше доверие. Берём в расчёт Ваши пожелания, находим подход к каждому.",
       },
       {
         icon: "mdi-alert-rhombus",
         color: "green",
         header: "Только безопасные покатушки!",
         text:
-          "Обязательно выдаём на время покатушек защитную экипировку – шлем, черепаха, мотоботы, наколенники, перчатки."
+          "Обязательно выдаём на время покатушек защитную экипировку – шлем, черепаха, мотоботы, наколенники, перчатки.",
       },
       {
         icon: "mdi-school",
         color: "indigo",
         header: "Эндуро школа",
         text:
-          "Обучаем правильному управлению мотоциклом даже тех, кто вовсе не имеет опыта покатух (езды на мотоциклах эндуро)."
+          "Обучаем правильному управлению мотоциклом даже тех, кто вовсе не имеет опыта покатух (езды на мотоциклах эндуро).",
       },
       {
         icon: "mdi-eye",
         color: "blue lighten-1",
         header: "Сопровождение в поездке",
         text:
-          "Чтобы помочь Вам пройти даже самые сложные участки пути, все поездки на мотоциклах проходят в сопровождении инструкторов."
+          "Чтобы помочь Вам пройти даже самые сложные участки пути, все поездки на мотоциклах проходят в сопровождении инструкторов.",
       },
       {
         icon: "mdi-currency-usd",
         color: "teal",
         header: "Цена/качество",
-        text: "Мы предлагаем прокат полноценных мотоциклов по цене питбайков."
-      }
+        text: "Мы предлагаем прокат полноценных мотоциклов по цене питбайков.",
+      },
     ],
     items: [
       {
-        src: "/static/enduro/2.jpg"
+        src: "/static/enduro/2.jpg",
       },
       {
-        src: "/static/enduro/6.jpg"
+        src: "/static/enduro/6.jpg",
       },
       {
-        src: "/static/enduro/3.jpg"
+        src: "/static/enduro/3.jpg",
       },
       {
-        src: "/static/enduro/8.jpg"
+        src: "/static/enduro/8.jpg",
       },
       {
-        src: "/static/enduro/9.jpg"
-      }
+        src: "/static/enduro/9.jpg",
+      },
     ],
 
     bikes: [
@@ -611,27 +603,27 @@ export default {
         header: "Yamaha serow 225",
         text:
           "Ещё один легендарный японский эндуро. Надёжен, обладает великолепной тягой, простотой в обращении. Прокат этого мотоцикла приходится по вкусу невысоким райдерам и девушкам.",
-        src: "static/enduro/bikes/serow1.jpg"
+        src: "static/enduro/bikes/serow1.jpg",
       },
       {
         header: "BSE J1",
         text:
           "Легкий, быстрый, мощный, надёжный, простой в управлении и эксплуатации кроссовый мотоцикл по доступной цене. BSE J1-250e 21/18 отлично подойдет, как новичкам, только начинающим постигать мир мотокросса и знакомиться с мотоциклом, так и кроссменам с опытом.",
-        src: "static/enduro/bikes/bse2.jpg"
+        src: "static/enduro/bikes/bse2.jpg",
       },
       {
         header: "Avantis Enduro 250 (172)",
         text:
           "Шедевр китайского мотостроения. Эндуро Avantis воплотил в себе симбиоз геометрии рамы КТМ, надёжного двигателя и хорошей подвески. Ценный и очень интересный аппарат.",
-        src: "static/enduro/bikes/avantis1.jpg"
+        src: "static/enduro/bikes/avantis1.jpg",
       },
       {
         header: "Honda xr 250",
         text:
           "Легенда японской мотопромышленности. Этот мотоцикл способен порадовать любого, даже самого изысканного райдера.",
-        src: "static/enduro/bikes/hodaxr1.jpg"
-      }
-    ]
+        src: "static/enduro/bikes/hodaxr1.jpg",
+      },
+    ],
   }),
   methods: {
     toggle() {
@@ -642,7 +634,7 @@ export default {
       this.opened = false;
       this.dialog = false;
       this.map_podmosckovie = false;
-    }
+    },
   },
 
   mounted() {
@@ -652,8 +644,8 @@ export default {
 
   // do not forget this section
   directives: {
-    ClickOutside
-  }
+    ClickOutside,
+  },
 };
 </script>
 <style>
