@@ -22,18 +22,7 @@
                   <v-icon large>mdi-magnify</v-icon>
                 </v-overlay>
               </v-fade-transition>
-              <!-- <v-slide-y-reverse-transition>
-                  <v-footer
-                    v-if="hover"
-                    absolute
-                    class="justify-center"
-                    height="75"
-                  >
-                    <div class="heading">
-                      {{ project.name }}
-                    </div>
-                  </v-footer>
-                </v-slide-y-reverse-transition> -->
+          
             </v-card>
           </template>
         </v-hover>

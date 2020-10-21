@@ -30,8 +30,8 @@
 
           <v-divider></v-divider>
         </v-responsive>
-        <!-- cycle -->
-        <!-- <v-carousel height="800">
+
+        <v-carousel height="800">
           <v-carousel-item
             v-for="(item, i) in items"
             :key="i"
@@ -39,14 +39,14 @@
             reverse-transition="fade-transition"
             transition="fade-transition"
           ></v-carousel-item>
-        </v-carousel> -->
+        </v-carousel>
       </v-container>
 
       <div class="py-12"></div>
     </section>
 
     <section>
-      <div><services /></div>
+      <div><photos /></div>
     </section>
 
     <!-- <v-container>
@@ -112,7 +112,7 @@
               justify="center"
               tag="section"
             >
-              <v-col class="text-right">
+              <v-col class="text-sm-right">
                 <v-icon
                   :color="feature.color"
                   size="56"
@@ -526,7 +526,7 @@ export default {
   components: {
     GetAQuote: () => import("@/components/GetAQuote"),
     OrderForm: () => import("@/components/OrderForm"),
-    Services: () => import("@/components/core/Services")
+    Photos: () => import("@/components/core/Photos")
   },
 
   data: () => ({
@@ -629,7 +629,7 @@ export default {
         header: "Honda xr 250",
         text:
           "Легенда японской мотопромышленности. Этот мотоцикл способен порадовать любого, даже самого изысканного райдера.",
-        src: "/static/enduro/bikes/hodaxr1.jpg"
+        src: "static/enduro/bikes/hodaxr1.jpg"
       }
     ]
   }),

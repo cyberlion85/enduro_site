@@ -10,24 +10,9 @@ const router = new Router({
     {
       path: "/",
       name: "Home",
-      component: () => import("@/views/Home"),
-    },
-    {
-      path: "/services",
-      name: "Services",
-      component: () => import("@/views/Services"),
-    },
-    {
-      path: "/projects",
-      name: "Projects",
-      component: () => import("@/views/Projects"),
-    },
-    {
-      path: "/contact",
-      name: "Contact",
-      component: () => import("@/views/Contact"),
-    },
-  ],
+      component: () => import("@/views/Home")
+    }
+  ]
 });
 
 // Bootstrap Analytics
@@ -38,8 +23,8 @@ if (process.env.VUE_APP_GOOGLE_ANALYTICS) {
     id: process.env.VUE_APP_GOOGLE_ANALYTICS,
     router,
     autoTracking: {
-      page: process.env.NODE_ENV !== "development",
-    },
+      page: process.env.NODE_ENV !== "development"
+    }
   });
 }
 

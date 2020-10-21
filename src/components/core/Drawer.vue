@@ -12,7 +12,11 @@
     </v-row>
     <v-divider />
     <v-list>
-      <v-list-item v-for="(item, i) in items" :key="i" :to="item.to">
+      <v-list-item
+        v-for="(item, i) in items"
+        :key="i"
+        @click="$vuetify.goTo(item.to)"
+      >
         <v-list-item-title v-text="item.text" />
       </v-list-item>
     </v-list>
@@ -26,23 +30,28 @@ import { mapState, mapMutations } from "vuex";
 export default {
   data: () => ({
     items: [
+      { to: "#home", text: "Домой" },
       {
-        to: "/",
-        text: "Home",
+        to: "#about-us",
+        text: "О нас"
       },
       {
-        to: "/services",
-        text: "Services",
+        to: "#bikes",
+        text: "Техника"
       },
       {
-        to: "/projects",
-        text: "Projects",
+        to: "#cost",
+        text: "Цены"
       },
       {
-        to: "/contact",
-        text: "Contact",
+        to: "#rent",
+        text: "Услуги"
       },
-    ],
+      {
+        to: "#contacts",
+        text: "Контакты"
+      }
+    ]
   }),
 
   computed: {
@@ -53,12 +62,12 @@ export default {
       },
       set(val) {
         this.setDrawer(val);
-      },
-    },
+      }
+    }
   },
 
   methods: {
-    ...mapMutations(["setDrawer", "toggleDrawer"]),
-  },
+    ...mapMutations(["setDrawer", "toggleDrawer"])
+  }
 };
 </script>
