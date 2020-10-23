@@ -17,10 +17,10 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="green darken-1" text @click="destroyMethod()">
-            Disagree
+            old
           </v-btn>
-          <v-btn color="green darken-1" text @click="destroyMethod()">
-            Agree
+          <v-btn color="green darken-1" text @click="fetchImages()">
+            axios
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -28,15 +28,36 @@
   </v-row>
 </template>
 <script>
+import axios from "axios";
 export default {
   data: () => ({
     dialog: false,
   }),
   methods: {
     destroyMethod() {
-      //   console.log("destroyMethod");
+      // this.fetchImages();
+      console.log("destroyMethod");
       this.dialog = false;
       this.$emit("destroy");
+    },
+    fetchImages() {
+      const data = {
+        email: { text_body: "stas", description: "frontend2" },
+      };
+
+      var config = {
+        method: "post",
+        url: "http://localhost:4000/emails",
+        // headers: {
+        //   con: "application/json",
+        //   "Content-Type": "application/json",
+        // },
+        data: data,
+      };
+      console.log("fetchimage!!!!!!");
+      return axios(config).then(function(response) {
+        console.log(JSON.stringify(response.data));
+      });
     },
   },
   // eslint-disable-next-line space-before-function-paren
