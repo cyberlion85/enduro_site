@@ -40,24 +40,24 @@ export default {
   data: () => ({
     items: [
       {
-        src: "static/enduro/9.jpg"
+        src: "static/enduro/9.jpg",
       },
       {
-        src: "static/enduro/1.jpg"
+        src: "static/enduro/1.jpg",
       },
       {
-        src: "static/enduro/3.jpg"
+        src: "static/enduro/3.jpg",
       },
       {
-        src: "static/enduro/5.jpg"
-      }
+        src: "static/enduro/5.jpg",
+      },
     ],
     titles: {
       home: {
         title: "Прокат мотоциклов эндуро в Москве!",
-        subtitle: "Чем мы занимаемся? Смотри ниже :)"
-      }
-    }
+        subtitle: "Чем мы занимаемся? Смотри ниже :)",
+      },
+    },
   }),
 
   computed: {
@@ -67,18 +67,18 @@ export default {
       return this.$route.name.toLowerCase();
     },
     image() {
-      console.log("/static/" + this.namespace + "-hero.png");
-      console.log("/src/assets/home-hero.jpg");
+      // console.log("/static/" + this.namespace + "-hero.png");
+      // console.log("/src/assets/home-hero.jpg");
       // return "/static/" + this.namespace + "-hero.png";
       return "static/enduro/9.jpg";
       // return "static/enduro/home-hero.jpg";
     },
     subtitle() {
-      return this.titles[this.namespace].subtitle;
+      return "Чем мы занимаемся? Смотри ниже :)";
     },
     title() {
-      return this.titles[this.namespace].title;
-    }
-  }
+      return "Прокат мотоциклов эндуро в Москве!";
+    },
+  },
 };
 </script>

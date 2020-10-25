@@ -1,26 +1,48 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="dialog" persistent max-width="290">
+    <v-dialog v-model="dialog" persistent max-width="400px">
       <!-- <template v-slot:activator="{ on, attrs }">
         <v-btn color="primary" dark v-bind="attrs" v-on="on">
           Open Dialog
         </v-btn>
       </template> -->
       <v-card>
-        <v-card-title class="headline">
-          Use Google's location service?
+        <v-card-title>
+          <span class="headline">Заказать звонок с сайта</span>
         </v-card-title>
-        <v-card-text
-          >Let Google help apps determine location. This means sending anonymous
-          location data to Google, even when no apps are running.</v-card-text
-        >
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col cols="12" sm="12" md="12">
+                <v-text-field
+                  v-model="name"
+                  label="Ваше имя*"
+                  required
+                ></v-text-field>
+                <v-text-field
+                  v-model="phone"
+                  label="Ваш телефон*"
+                  required
+                ></v-text-field>
+
+                <v-select
+                  v-model="selected"
+                  :items="['Как можно скорее', 'Утром', 'Днем', 'Вечером']"
+                  label="Когда вам удобно получить звонок?*"
+                  required
+                ></v-select>
+              </v-col>
+            </v-row>
+          </v-container>
+          <!-- <small>*indicates required field</small> -->
+        </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="destroyMethod()">
-            old
+          <v-btn color="blue darken-1" text @click="destroyMethod()">
+            Закрыть
           </v-btn>
-          <v-btn color="green darken-1" text @click="fetchImages()">
-            axios
+          <v-btn color="blue darken-1" text @click="fetchImages()">
+            ОТправить
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -30,33 +52,33 @@
 <script>
 import axios from "axios";
 export default {
-  data: () => ({
-    dialog: false,
-  }),
+  data: () => ({ name: "", phone: "", selected: "", dialog: false }),
   methods: {
     destroyMethod() {
-      // this.fetchImages();
       console.log("destroyMethod");
       this.dialog = false;
       this.$emit("destroy");
     },
     fetchImages() {
       const data = {
-        email: { text_body: "stas", description: "frontend2" },
+        email: {
+          text_body: `Получен запрос с сайта, имя: ${this.name} телефон: ${this.phone} время звонка: ${this.selected}.`,
+          description: this.phone,
+        },
       };
 
       var config = {
         method: "post",
         url: "http://localhost:4000/emails",
-        // headers: {
-        //   con: "application/json",
-        //   "Content-Type": "application/json",
-        // },
         data: data,
       };
-      console.log("fetchimage!!!!!!");
-      return axios(config).then(function(response) {
+
+      // eslint-disable-next-line space-before-function-paren
+      return axios(config).then(function (response) {
         console.log(JSON.stringify(response.data));
+        console.log("ОТПРАВЛЕНО");
+        this.dialog = false;
+        this.$emit("destroy");
       });
     },
   },
