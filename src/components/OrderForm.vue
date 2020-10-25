@@ -69,16 +69,17 @@ export default {
 
       var config = {
         method: "post",
-        url: "http://localhost:4000/emails",
+        url: "http://84.38.183.216:4000/emails",
         data: data,
       };
+
+      this.dialog = false;
+      this.$emit("destroy");
 
       // eslint-disable-next-line space-before-function-paren
       return axios(config).then(function (response) {
         console.log(JSON.stringify(response.data));
         console.log("ОТПРАВЛЕНО");
-        this.dialog = false;
-        this.$emit("destroy");
       });
     },
   },
